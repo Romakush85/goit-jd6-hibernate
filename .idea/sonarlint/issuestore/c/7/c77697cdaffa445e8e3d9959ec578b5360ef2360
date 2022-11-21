@@ -1,0 +1,25 @@
+
+d
+java:S1192`"GDefine a constant instead of duplicating this literal "result" 4 times.(Üî«Ä8ì’òÚÇ0
+l
+java:S1192B"JDefine a constant instead of duplicating this literal "projectId" 3 times.(¨óşúúÿÿÿÿ8ñ©ÛÈ0
+m
+java:S1301'"KReplace this "switch" statement by "if" statements to increase readability.(¸ìù«üÿÿÿÿ8ô¥áÈ0
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(àä½ÿÿÿÿÿ8ùˆÛÇ0
+<	java:S131'""Add a default case to this switch.(¸ìù«üÿÿÿÿ
+‹
+java:S1989)"iHandle the following exceptions that could be thrown by "findProjectById": ServletException, IOException.(–¹’×üÿÿÿÿ8÷ÈáÈ0
+‹
+java:S1989,"iHandle the following exceptions that could be thrown by "findAllProjects": ServletException, IOException.(³Õ‘Ïúÿÿÿÿ8ÓèáÈ0
+C	java:S1314""Add a default case to this switch.(¸ìù«üÿÿÿÿ8€¦áÈ0
+‚
+java:S19896"gHandle the following exceptions that could be thrown by "createProject": ServletException, IOException.(Àñµ”üÿÿÿÿ
+‰
+java:S19899"gHandle the following exceptions that could be thrown by "updateProject": ServletException, IOException.(®æ¶ùÿÿÿÿ8şöĞÚÇ0
+„
+java:S1989<"gHandle the following exceptions that could be thrown by "deleteProject": ServletException, IOException.(©£ëø8ëàòÚÇ0
+u
+java:S1602D"SRemove useless curly braces around statement and then remove useless return keyword(¸÷•÷ùÿÿÿÿ8ÿ©ÛÈ0
+Z	java:S106K"9Replace this use of System.out or System.err by a logger.(˜ê­Œùÿÿÿÿ8½ÏØÈ0
+Z
+java:S1128"8Remove this unused import 'ua.goit.jdbc.dto.CompanyDto'.(İº¶üÿÿÿÿ8‹ÁÈ0

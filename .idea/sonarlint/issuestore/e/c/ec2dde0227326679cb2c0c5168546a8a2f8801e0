@@ -1,0 +1,17 @@
+
+[	java:S1125"FDefine and throw a dedicated exception instead of using a generic one.(ÎŒé“
+Z	java:S112F"FDefine and throw a dedicated exception instead of using a generic one.(…«·
+[	java:S112W"FDefine and throw a dedicated exception instead of using a generic one.(Ã î´
+`	java:S112c"FDefine and throw a dedicated exception instead of using a generic one.(’°ÙÏúÿÿÿÿ
+`
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(â‚õĞşÿÿÿÿ
+[
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(½†Òà
+`
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(ªÏ›üÿÿÿÿ
+[
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(–ä’Ã
+`
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(›âÚ‹ûÿÿÿÿ
+U
+java:S1128":Remove this unused import 'ua.goit.jdbc.dao.DeveloperDao'.(ƒñ„ßøÿÿÿÿ

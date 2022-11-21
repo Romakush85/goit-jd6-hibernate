@@ -1,0 +1,13 @@
+
+a
+java:S2789"FEnsure this "Optional" could never be null and remove this null-check.(®ŠÉèýÿÿÿÿ
+c
+java:S1126 "AReplace this if-then-else statement by a single return statement.(·ÜÍýúÿÿÿÿ8°§ŒåÇ0
+\
+java:S1612)"AReplace this lambda with method reference 'skillConverter::from'.(ó¦ø„üÿÿÿÿ
+h
+java:S6204."RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹
+\
+java:S1612-"AReplace this lambda with method reference 'skillConverter::from'.(œ±¶îùÿÿÿÿ
+H
+java:S1128"2Remove this unused import 'java.sql.SQLException'.(ÛïÆŸ
