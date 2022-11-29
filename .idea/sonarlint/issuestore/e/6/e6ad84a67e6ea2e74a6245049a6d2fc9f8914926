@@ -1,15 +1,0 @@
-
-c
-java:S2789"FEnsure this "Optional" could never be null and remove this null-check.(«ύι8¤άκ‡Θ0
-_
-java:S2259"BA "NullPointerException" could be thrown; "null" is nullable here.(±•©ψ8δάκ‡Θ0
-[
-java:S3516"9Refactor this method to not always return the same value.(Γ­Εεϋÿÿÿÿ8εάκ‡Θ0
-W
-java:S1126 "AReplace this if-then-else statement by a single return statement.(ζβ™
-e
-java:S1612)"CReplace this lambda with method reference 'companyConverter::from'.(°Οΐϋÿÿÿÿ8ιάκ‡Θ0
-o
-java:S6204."RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨Ή8ιάκ‡Θ0
-`
-java:S1612-"CReplace this lambda with method reference 'companyConverter::from'.(ΰΛψΜ8κάκ‡Θ0

@@ -24,7 +24,7 @@ public class CustomerService {
     }
 
     public boolean update(CustomerDto customerDto) {
-        if(customerRepository.findById(customerDto.getCustomerId()) != null){
+        if(customerRepository.findById(customerDto.getCustomerId()).isPresent()){
             CustomerDao customerToUpdate = customerConverter.to(customerDto);
             customerRepository.update(customerToUpdate);
             CustomerDto updatedCustomer = findById(customerDto.getCustomerId()).orElseGet(null);

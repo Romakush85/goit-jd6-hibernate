@@ -1,6 +1,7 @@
 package ua.goit.jdbc.controller.developerController;
 
 import ua.goit.jdbc.config.DatabaseManagerConnector;
+import ua.goit.jdbc.config.HibernateProvider;
 import ua.goit.jdbc.config.PropertiesConfig;
 import ua.goit.jdbc.dto.CompanyDto;
 import ua.goit.jdbc.dto.DeveloperDto;
@@ -26,13 +27,9 @@ public class DeveloperController extends HttpServlet {
     private DeveloperRepository developerRepository;
 
     @Override
-    public void init() throws ServletException {
-        String dbUsername = System.getenv("dbUsername");
-        String dbPassword = System.getenv("dbPassword");
-        PropertiesConfig propertiesConfig = new PropertiesConfig();
-        Properties properties = propertiesConfig.loadProperties("application.properties");
-        DatabaseManagerConnector dbManager = new DatabaseManagerConnector(properties, dbUsername, dbPassword);
-        developerRepository = new DeveloperRepository(dbManager);
+    public void init() {
+        HibernateProvider provider = new HibernateProvider();
+        developerRepository = new DeveloperRepository(provider);
         DeveloperConverter developerConverter = new DeveloperConverter();
         developerService = new DeveloperService(developerRepository, developerConverter);
     }

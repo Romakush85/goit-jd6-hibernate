@@ -25,7 +25,7 @@ public class SkillService {
     }
 
     public boolean update(SkillDto skillDto)  {
-        if(skillRepository.findById(skillDto.getSkillId()) != null) {
+        if(skillRepository.findById(skillDto.getSkillId()).isPresent()) {
             SkillDao skillToUpdate = skillConverter.to(skillDto);
             skillRepository.update(skillToUpdate);
             SkillDto updatedSkill = findById(skillDto.getSkillId()).orElseGet(() ->  null);

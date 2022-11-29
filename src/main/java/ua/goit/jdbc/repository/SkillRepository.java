@@ -1,107 +1,77 @@
 package ua.goit.jdbc.repository;
 
-import ua.goit.jdbc.config.DatabaseManagerConnector;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import ua.goit.jdbc.config.HibernateProvider;
 import ua.goit.jdbc.dao.SkillDao;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 public class SkillRepository implements Repository<SkillDao>{
-    private final DatabaseManagerConnector connector;
-
-    private final static String INSERT = "INSERT INTO skills ( language, level) " +
-            "VALUES (?, ?)";
-    private final static String UPDATE = "UPDATE skills SET  language = ?, " +
-            "level = ? WHERE skill_id = ?";
-    private final static String SELECT_BY_ID = "SELECT skill_id, language, level FROM skills WHERE " +
-            "skill_id = ?";
-    private final static String SELECT_ALL = "SELECT skill_id, language, level FROM skills";
-    private final static String DELETE_BY_ID = "DELETE FROM skills WHERE skill_id = ?";
-
-    public SkillRepository(DatabaseManagerConnector connector) {
-        this.connector = connector;
+    private final HibernateProvider provider;
+    public SkillRepository(HibernateProvider provider) {
+        this.provider = provider;
     }
 
     @Override
-    public SkillDao save(SkillDao skill) {
-        try(Connection connection = connector.getConnection();
-            PreparedStatement statement = connection.prepareStatement(INSERT)) {
-            statement.setString(1, skill.getLanguage());
-            statement.setString(2, skill.getLevel());
-            statement.execute();
-        } catch (SQLException e) {
+    public SkillDao save(SkillDao skillDao) {
+        try (final Session session = provider.openSession()) {
+            final Transaction transaction = session.beginTransaction();
+            session.persist(skillDao);
+            transaction.commit();
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        return skill;
+        return skillDao;
     }
 
     @Override
-    public void update(SkillDao skill) {
-        try(Connection connection = connector.getConnection();
-            PreparedStatement statement = connection.prepareStatement(UPDATE)) {
-            statement.setString(1, skill.getLanguage());
-            statement.setString(2, skill.getLevel());
-            statement.setInt(3, skill.getSkillId());
-            statement.execute();
-        } catch (SQLException e) {
+    public void update(SkillDao skillDao) {
+        try (final Session session = provider.openSession()) {
+            final Transaction transaction = session.beginTransaction();
+            session.merge(skillDao);
+            transaction.commit();
+        } catch (Exception e) {
             e.printStackTrace();
-            throw new RuntimeException("Can't update skill");
         }
     }
 
     @Override
     public Optional<SkillDao> findById(Integer id)  {
         SkillDao skillDao = null;
-        try(Connection connection = connector.getConnection();
-            PreparedStatement statement = connection.prepareStatement(SELECT_BY_ID)) {
-            statement.setInt(1, id);
-            try(ResultSet resultSet = statement.executeQuery()) {
-                while(resultSet.next()) {
-                    skillDao = convert(resultSet);
-                }
-            }
-        } catch (SQLException e) {
+        try (final Session session = provider.openSession()) {
+            skillDao = session.get(SkillDao.class, id);
+        } catch (Exception e) {
             e.printStackTrace();
-            throw new RuntimeException("");
         }
         return Optional.ofNullable(skillDao);
     }
 
     @Override
-    public List<SkillDao> findAll() {
+    public List<SkillDao> findAll()  {
         List<SkillDao> skills = new ArrayList<>();
-        try(Connection connection = connector.getConnection();
-            PreparedStatement statement = connection.prepareStatement(SELECT_ALL)) {
-            try(ResultSet resultSet = statement.executeQuery()) {
-                while(resultSet.next()){
-                    skills.add(convert(resultSet));
-                }
-            }
-        } catch (SQLException e) {
+        try (final Session session = provider.openSession()) {
+            return session.createQuery("FROM SkillDao", SkillDao.class)
+                    .getResultList();
+        } catch (Exception e) {
             e.printStackTrace();
-            throw new RuntimeException("Can't get skills");
         }
         return skills;
     }
 
     public void deleteById(Integer id) {
-        try(Connection connection = connector.getConnection();
-            PreparedStatement statement = connection.prepareStatement(DELETE_BY_ID)) {
-            statement.setInt(1, id);
-            statement.execute();
-        } catch (SQLException e) {
-            e.printStackTrace();
-            throw new RuntimeException("Can't delete skill");
+        Optional<SkillDao> optional = findById(id);
+        if(optional.isPresent()) {
+            try (final Session session = provider.openSession()) {
+                final Transaction transaction = session.beginTransaction();
+                session.remove(optional.get());
+                transaction.commit();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
-    private SkillDao convert(ResultSet resultSet) throws SQLException {
-        SkillDao skillDao = new SkillDao();
-        skillDao.setSkillId(resultSet.getInt("skill_id"));
-        skillDao.setLanguage(resultSet.getString("language"));
-        skillDao.setLevel(resultSet.getString("level"));
-        return skillDao;
-    }
 }

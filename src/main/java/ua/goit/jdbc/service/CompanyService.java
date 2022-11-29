@@ -25,7 +25,7 @@ public class CompanyService {
     }
 
     public boolean update(CompanyDto companyDto) {
-        if(companyRepository.findById(companyDto.getCompanyId()) != null){
+        if(companyRepository.findById(companyDto.getCompanyId()).isPresent()){
             CompanyDao companyToUpdate = companyConverter.to(companyDto);
             companyRepository.update(companyToUpdate);
             CompanyDto updatedCompany = findById(companyDto.getCompanyId()).orElseGet(null);

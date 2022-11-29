@@ -1,25 +1,23 @@
 
-]
-java:S1192w"GDefine a constant instead of duplicating this literal "result" 4 times.(–Óœ¾
 c
-java:S1192F"FDefine a constant instead of duplicating this literal "devId" 3 times.(åÿ8’­ÔÈ0
+java:S1192C"FDefine a constant instead of duplicating this literal "devId" 3 times.(åÿ8’­ÔÈ0
+]
+java:S1192t"GDefine a constant instead of duplicating this literal "result" 4 times.(–Óœ¾
 m
-java:S1301+"KReplace this "switch" statement by "if" statements to increase readability.(¸ìù«üÿÿÿÿ8õ¶ÕÈ0
+java:S1301("KReplace this "switch" statement by "if" statements to increase readability.(¸ìù«üÿÿÿÿ8õ¶ÕÈ0
 v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ñ•8¢¡©×Ç0
-<	java:S131+""Add a default case to this switch.(¸ìù«üÿÿÿÿ
+<	java:S131(""Add a default case to this switch.(¸ìù«üÿÿÿÿ
 
-java:S1989-"kHandle the following exceptions that could be thrown by "findDeveloperById": ServletException, IOException.(ë©ºùÿÿÿÿ8ÜÖÈ0
+java:S1989*"kHandle the following exceptions that could be thrown by "findDeveloperById": ServletException, IOException.(ë©ºùÿÿÿÿ8ÜÖÈ0
 ‡
-java:S19890"kHandle the following exceptions that could be thrown by "findAllDevelopers": ServletException, IOException.(¡­ë8ÜÖÈ0
-C	java:S1318""Add a default case to this switch.(¸ìù«üÿÿÿÿ8Š·ÕÈ0
+java:S1989-"kHandle the following exceptions that could be thrown by "findAllDevelopers": ServletException, IOException.(¡­ë8ÜÖÈ0
+C	java:S1315""Add a default case to this switch.(¸ìù«üÿÿÿÿ8Š·ÕÈ0
 †
-java:S1989:"iHandle the following exceptions that could be thrown by "createDeveloper": ServletException, IOException.(´¥©Û8‹êÚÇ0
+java:S19897"iHandle the following exceptions that could be thrown by "createDeveloper": ServletException, IOException.(´¥©Û8‹êÚÇ0
 †
-java:S1989="iHandle the following exceptions that could be thrown by "updateDeveloper": ServletException, IOException.(•ÏÇô8Æ–‘ÚÇ0
+java:S1989:"iHandle the following exceptions that could be thrown by "updateDeveloper": ServletException, IOException.(•ÏÇô8Æ–‘ÚÇ0
 ‹
-java:S1989@"iHandle the following exceptions that could be thrown by "deleteDeveloper": ServletException, IOException.(óàà»úÿÿÿÿ8‰½‘ÚÇ0
+java:S1989="iHandle the following exceptions that could be thrown by "deleteDeveloper": ServletException, IOException.(óàà»úÿÿÿÿ8‰½‘ÚÇ0
 p
-java:S1602H"SRemove useless curly braces around statement and then remove useless return keyword(ôó”8Î²ÌÈ0
-U	java:S106N"9Replace this use of System.out or System.err by a logger.(·‰²ª8Î²ÌÈ0
-Z
-java:S1128"8Remove this unused import 'ua.goit.jdbc.dto.CompanyDto'.(İº¶üÿÿÿÿ8äÖÈ0
+java:S1602E"SRemove useless curly braces around statement and then remove useless return keyword(ôó”8Î²ÌÈ0
+U	java:S106K"9Replace this use of System.out or System.err by a logger.(·‰²ª8Î²ÌÈ0

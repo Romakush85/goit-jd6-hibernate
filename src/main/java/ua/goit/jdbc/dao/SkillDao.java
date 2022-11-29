@@ -1,5 +1,12 @@
 package ua.goit.jdbc.dao;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="skills")
 public class SkillDao {
     Integer skillId;
     String language;
@@ -14,6 +21,8 @@ public class SkillDao {
         this.level = level;
     }
 
+    @Id
+    @Column(name="skill_id", length = 10, nullable = false)
     public Integer getSkillId() {
         return skillId;
     }
@@ -22,6 +31,7 @@ public class SkillDao {
         this.skillId = skillId;
     }
 
+    @Column(name="language", length = 10, nullable = false)
     public String getLanguage() {
         return language;
     }
@@ -30,6 +40,7 @@ public class SkillDao {
         this.language = language;
     }
 
+    @Column(name="level", length = 10, nullable = false)
     public String getLevel() {
         return level;
     }

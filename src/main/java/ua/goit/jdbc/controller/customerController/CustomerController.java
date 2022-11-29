@@ -1,14 +1,15 @@
 package ua.goit.jdbc.controller.customerController;
 
-import ua.goit.jdbc.config.DatabaseManagerConnector;
-import ua.goit.jdbc.config.PropertiesConfig;
-import ua.goit.jdbc.dto.CompanyDto;
+
+import ua.goit.jdbc.config.HibernateProvider;
+
+
 import ua.goit.jdbc.dto.CustomerDto;
-import ua.goit.jdbc.repository.CompanyRepository;
+
 import ua.goit.jdbc.repository.CustomerRepository;
-import ua.goit.jdbc.service.CompanyService;
+
 import ua.goit.jdbc.service.CustomerService;
-import ua.goit.jdbc.service.converter.CompanyConverter;
+
 import ua.goit.jdbc.service.converter.CustomerConverter;
 
 import javax.servlet.ServletException;
@@ -17,6 +18,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 import java.util.Properties;
@@ -27,13 +29,9 @@ public class CustomerController extends HttpServlet {
     private CustomerService customerService;
 
     @Override
-    public void init() throws ServletException {
-        String dbUsername = System.getenv("dbUsername");
-        String dbPassword = System.getenv("dbPassword");
-        PropertiesConfig propertiesConfig = new PropertiesConfig();
-        Properties properties = propertiesConfig.loadProperties("application.properties");
-        DatabaseManagerConnector dbManager = new DatabaseManagerConnector(properties, dbUsername, dbPassword);
-        customerRepository = new CustomerRepository(dbManager);
+    public void init()  {
+        HibernateProvider provider = new HibernateProvider();
+        customerRepository = new CustomerRepository(provider);
         CustomerConverter customerConverter = new CustomerConverter();
         customerService = new CustomerService(customerRepository, customerConverter);
     }

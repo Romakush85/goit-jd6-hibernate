@@ -1,5 +1,6 @@
 package ua.goit.jdbc.controller.projectController;
 import ua.goit.jdbc.config.DatabaseManagerConnector;
+import ua.goit.jdbc.config.HibernateProvider;
 import ua.goit.jdbc.config.PropertiesConfig;
 import ua.goit.jdbc.dto.CompanyDto;
 import ua.goit.jdbc.dto.ProjectDto;
@@ -23,12 +24,8 @@ public class ProjectController extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        String dbUsername = System.getenv("dbUsername");
-        String dbPassword = System.getenv("dbPassword");
-        PropertiesConfig propertiesConfig = new PropertiesConfig();
-        Properties properties = propertiesConfig.loadProperties("application.properties");
-        DatabaseManagerConnector dbManager = new DatabaseManagerConnector(properties, dbUsername, dbPassword);
-        projectRepository = new ProjectRepository(dbManager);
+        HibernateProvider provider = new HibernateProvider();
+        projectRepository = new ProjectRepository(provider);
         ProjectConverter projectConverter  = new ProjectConverter();
         projectService = new ProjectService(projectRepository, projectConverter);
     }

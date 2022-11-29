@@ -1,10 +1,15 @@
 package ua.goit.jdbc.dao;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name="projects")
 public class ProjectDao {
     Integer projectId;
     String name;
     Integer customerId;
     Integer cost;
+
 
     public ProjectDao() {
     }
@@ -16,6 +21,9 @@ public class ProjectDao {
         this.cost = cost;
     }
 
+    @Id
+    @Column(name = "project_id", length = 10, nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getProjectId() {
         return projectId;
     }
@@ -24,6 +32,7 @@ public class ProjectDao {
         this.projectId = projectId;
     }
 
+    @Column(name = "project_name", length = 100, nullable = false)
     public String getName() {
         return name;
     }
@@ -32,6 +41,7 @@ public class ProjectDao {
         this.name = name;
     }
 
+    @Column(name = "customer_id", length = 10, nullable = false)
     public Integer getCustomerId() {
         return customerId;
     }
@@ -40,6 +50,7 @@ public class ProjectDao {
         this.customerId = customerId;
     }
 
+    @Column(name = "cost", length = 10, nullable = false)
     public Integer getCost() {
         return cost;
     }

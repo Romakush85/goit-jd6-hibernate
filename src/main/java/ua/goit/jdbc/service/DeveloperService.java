@@ -25,7 +25,7 @@ public class DeveloperService {
     }
 
     public boolean update(DeveloperDto developerDto) {
-        if(developerRepository.findById(developerDto.getDevId()) != null) {
+        if(developerRepository.findById(developerDto.getDevId()).isPresent()) {
             DeveloperDao developerToUpdate = developerConverter.to(developerDto);
             developerRepository.update(developerToUpdate);
             DeveloperDto updatedDeveloper = findById(developerDto.getDevId()).orElseGet(() -> {return null;});
@@ -39,21 +39,6 @@ public class DeveloperService {
     public Optional<DeveloperDto> findById(Integer id)  {
         Optional<DeveloperDao> developerDao = developerRepository.findById(id);
         return developerDao.map(dao -> developerConverter.from(dao));
-    }
-
-    public List<DeveloperDto> findAllByProjectId(Integer id) {
-        return developerRepository.findAllByProjectId(id).stream().map(dao -> developerConverter.from(dao))
-                .collect(Collectors.toList());
-    }
-
-    public List<DeveloperDto> findAllJavaDevelopers() {
-        return developerRepository.findAllJavaDevelopers().stream().map(dao -> developerConverter.from(dao))
-                .collect(Collectors.toList());
-    }
-
-    public List<DeveloperDto> findAllMiddleDevelopers() {
-        return developerRepository.findAllMiddleDevelopers().stream().map(dao -> developerConverter.from(dao))
-                .collect(Collectors.toList());
     }
 
     public List<DeveloperDto> findAll() {

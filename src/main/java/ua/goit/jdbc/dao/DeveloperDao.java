@@ -1,7 +1,11 @@
 package ua.goit.jdbc.dao;
 
+import jakarta.persistence.*;
+
 import java.util.Date;
 
+@Entity
+@Table(name="developers")
 public class DeveloperDao {
     Integer devId;
     String firstName;
@@ -22,6 +26,9 @@ public class DeveloperDao {
         this.salary = salary;
     }
 
+    @Id
+    @Column(name = "dev_id", length = 10, nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getDevId() {
         return devId;
     }
@@ -30,6 +37,7 @@ public class DeveloperDao {
         this.devId = devId;
     }
 
+    @Column(name = "first_name", length = 100, nullable = false)
     public String getFirstName() {
         return firstName;
     }
@@ -38,6 +46,7 @@ public class DeveloperDao {
         this.firstName = firstName;
     }
 
+    @Column(name = "last_name", length = 100, nullable = false)
     public String getLastName() {
         return lastName;
     }
@@ -46,6 +55,7 @@ public class DeveloperDao {
         this.lastName = lastName;
     }
 
+    @Column(name = "birth_date", length = 10, nullable = false)
     public Date getBirthDate() {
         return birthDate;
     }
@@ -54,6 +64,7 @@ public class DeveloperDao {
         this.birthDate = birthDate;
     }
 
+    @Column(name = "gender", length = 6, nullable = false)
     public String getGender() {
         return gender;
     }
@@ -62,6 +73,7 @@ public class DeveloperDao {
         this.gender = gender;
     }
 
+    @Column(name = "salary", length = 10, nullable = false)
     public Integer getSalary() {
         return salary;
     }

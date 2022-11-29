@@ -1,11 +1,11 @@
 package ua.goit.jdbc.controller.companyController;
 
-import ua.goit.jdbc.config.DatabaseManagerConnector;
-import ua.goit.jdbc.config.PropertiesConfig;
+import ua.goit.jdbc.config.HibernateProvider;
 import ua.goit.jdbc.dto.CompanyDto;
 import ua.goit.jdbc.repository.CompanyRepository;
 import ua.goit.jdbc.service.CompanyService;
 import ua.goit.jdbc.service.converter.CompanyConverter;
+
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
-import java.util.Properties;
+
 
 @WebServlet("/companies")
 public class CompanyController extends HttpServlet {
@@ -23,13 +23,9 @@ public class CompanyController extends HttpServlet {
     private CompanyService companyService;
 
     @Override
-    public void init() throws ServletException {
-        String dbUsername = System.getenv("dbUsername");
-        String dbPassword = System.getenv("dbPassword");
-        PropertiesConfig propertiesConfig = new PropertiesConfig();
-        Properties properties = propertiesConfig.loadProperties("application.properties");
-        DatabaseManagerConnector dbManager = new DatabaseManagerConnector(properties, dbUsername, dbPassword);
-        companyRepository = new CompanyRepository(dbManager);
+    public void init() {
+        HibernateProvider provider = new HibernateProvider();
+        companyRepository = new CompanyRepository(provider);
         CompanyConverter companyConverter = new CompanyConverter();
         companyService = new CompanyService(companyRepository, companyConverter);
     }

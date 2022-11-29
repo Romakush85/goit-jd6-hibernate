@@ -1,25 +1,23 @@
 
 d
-java:S1192]"GDefine a constant instead of duplicating this literal "result" 4 times.(’‘¥ú8®ôåÇ0
+java:S1192Z"GDefine a constant instead of duplicating this literal "result" 4 times.(’‘¥ú8®ôåÇ0
 j
-java:S1192B"HDefine a constant instead of duplicating this literal "skillId" 3 times.(–µ¢ûÿÿÿÿ8¹æÈ0
+java:S1192?"HDefine a constant instead of duplicating this literal "skillId" 3 times.(–µ¢ûÿÿÿÿ8¹æÈ0
 m
-java:S1301'"KReplace this "switch" statement by "if" statements to increase readability.(¸ìù«üÿÿÿÿ8ÿª§È0
+java:S1301$"KReplace this "switch" statement by "if" statements to increase readability.(¸ìù«üÿÿÿÿ8ÿª§È0
 o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ïÆš
-<	java:S131'""Add a default case to this switch.(¸ìù«üÿÿÿÿ
+<	java:S131$""Add a default case to this switch.(¸ìù«üÿÿÿÿ
 „
-java:S1989)"gHandle the following exceptions that could be thrown by "findSkillById": ServletException, IOException.(ÚöÁ’8ÕÒ§È0
+java:S1989&"gHandle the following exceptions that could be thrown by "findSkillById": ServletException, IOException.(ÚöÁ’8ÕÒ§È0
 ‰
-java:S1989,"gHandle the following exceptions that could be thrown by "findAllSkills": ServletException, IOException.(›í¢’ùÿÿÿÿ8şÿ§È0
-C	java:S1314""Add a default case to this switch.(¸ìù«üÿÿÿÿ8œ±¦È0
+java:S1989)"gHandle the following exceptions that could be thrown by "findAllSkills": ServletException, IOException.(›í¢’ùÿÿÿÿ8şÿ§È0
+C	java:S1311""Add a default case to this switch.(¸ìù«üÿÿÿÿ8œ±¦È0
 ‡
-java:S19896"eHandle the following exceptions that could be thrown by "createSkill": ServletException, IOException.(Î‰—Óûÿÿÿÿ8œ±¦È0
+java:S19893"eHandle the following exceptions that could be thrown by "createSkill": ServletException, IOException.(Î‰—Óûÿÿÿÿ8œ±¦È0
 ‡
-java:S19899"eHandle the following exceptions that could be thrown by "updateSkill": ServletException, IOException.(¶ıêœÿÿÿÿÿ8œ±¦È0
+java:S19896"eHandle the following exceptions that could be thrown by "updateSkill": ServletException, IOException.(¶ıêœÿÿÿÿÿ8œ±¦È0
 ‚
-java:S1989<"eHandle the following exceptions that could be thrown by "deleteSkill": ServletException, IOException.(¹™‡ß8±¦È0
+java:S19899"eHandle the following exceptions that could be thrown by "deleteSkill": ServletException, IOException.(¹™‡ß8±¦È0
 u
-java:S1602D"SRemove useless curly braces around statement and then remove useless return keyword(Ãê¦şÿÿÿÿ8©¹æÈ0
-U	java:S106J"9Replace this use of System.out or System.err by a logger.(©ù¢“8ºßäÈ0
-Z
-java:S1128"8Remove this unused import 'ua.goit.jdbc.dto.CompanyDto'.(İº¶üÿÿÿÿ8“ÌèÈ0
+java:S1602A"SRemove useless curly braces around statement and then remove useless return keyword(Ãê¦şÿÿÿÿ8©¹æÈ0
+U	java:S106G"9Replace this use of System.out or System.err by a logger.(©ù¢“8ºßäÈ0

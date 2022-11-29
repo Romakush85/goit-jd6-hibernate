@@ -1,5 +1,9 @@
 package ua.goit.jdbc.dao;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name="customers")
 public class CustomerDao {
     Integer customerId;
     String name;
@@ -18,6 +22,9 @@ public class CustomerDao {
         this.email = email;
     }
 
+    @Id
+    @Column(name = "customer_id", length = 10, nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getCustomerId() {
         return customerId;
     }
@@ -26,6 +33,7 @@ public class CustomerDao {
         this.customerId = customerId;
     }
 
+    @Column(name = "customer_name", length = 100, nullable = false)
     public String getName() {
         return name;
     }
@@ -34,6 +42,7 @@ public class CustomerDao {
         this.name = name;
     }
 
+    @Column(name = "country", length = 100, nullable = false)
     public String getCountry() {
         return country;
     }
@@ -42,6 +51,7 @@ public class CustomerDao {
         this.country = country;
     }
 
+    @Column(name = "contact_person", length = 100, nullable = false)
     public String getContactPerson() {
         return contactPerson;
     }
@@ -50,6 +60,7 @@ public class CustomerDao {
         this.contactPerson = contactPerson;
     }
 
+    @Column(name = "email", length = 100, nullable = false)
     public String getEmail() {
         return email;
     }
